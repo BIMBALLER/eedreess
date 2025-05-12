@@ -24,6 +24,14 @@
     <section class="product-catalog">
         <div class="container">
             <h2>Our Gadgets</h2>
+            <div class="search-container">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search products..."
+                  aria-label="Search products"
+                />
+              </div>
             <div class="product-grid">
                 <div class="product-item">
                     <img src="s22 256gb.jpg" alt="Samsung Galaxy S22 256GB">
@@ -128,5 +136,27 @@
             <p>© 2025 Gbolly Gadgets. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const input = document.getElementById("searchInput");
+          const cards = document.querySelectorAll(".product-item");
+  
+          input.addEventListener("keyup", function () {
+            const filter = this.value.trim().toLowerCase();
+  
+            cards.forEach((card) => {
+              // Grab the product title text
+              const title = card.querySelector("h3").textContent.toLowerCase();
+  
+              // If the title includes the filter text, show it; otherwise hide it
+              if (title.includes(filter)) {
+                card.style.display = "";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      </script>
 </body>
 </html>

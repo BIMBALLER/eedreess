@@ -1,65 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="logo">
-            <img src="eedreess logo.jpg" alt="">
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="product.html">Products</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <div class="logo">
+        <img src="eedreess logo.jpg" alt="" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Upgrade Your Phone Game</h1>
-            <p>Shop the latest cases, chargers, and accessories for your device.</p>
-            <a href="https://wa.link/z1c4tk" class="cta-button">Shop Now</a>
-        </div>
+      <div class="hero-content">
+        <h1>Upgrade Your Phone Game</h1>
+        <p>Shop the latest cases, chargers, and accessories for your device.</p>
+        <a href="https://wa.link/z1c4tk" class="cta-button">Shop Now</a>
+      </div>
     </section>
 
     <section class="products" id="products">
-        <h2>Featured Gadgets</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <a href="proo.html">
-                <img src="WhatsApp Image 2025-04-18 at 11.39.24_fbc27a94.jpg" alt="Phone Case">
-                <h3>Mobile Phones</h3>
-                </a>
-            </div>
-            <div class="product-card">
-                <img src="WhatsApp Image 2025-04-18 at 11.39.25_5bd43fad.jpg" alt="Earphones">
-                <h3>Wireless Earbuds</h3>
-            </div>
-            <div class="product-card">
-                <img src="WhatsApp Image 2025-04-18 at 11.39.25_16a33229.jpg" alt="Screen Protector">
-                <h3>Laptops</h3>
-            </div>
-            <div class="product-card">
-                <img src="WhatsApp Image 2025-04-18 at 11.39.25_d9b847f4.jpg" alt="Wireless Charger">
-                <h3>Tablets</h3>
-            </div>
+      <h2>Featured Gadgets</h2>
+
+      <!-- Search bar -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+          aria-label="Search products"
+        />
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <a href="proo.html">
+            <img
+              src="WhatsApp Image 2025-04-18 at 11.39.24_fbc27a94.jpg"
+              alt="Phone Case"
+            />
+            <h3>Mobile Phones</h3>
+          </a>
         </div>
+        <div class="product-card">
+          <img
+            src="WhatsApp Image 2025-04-18 at 11.39.25_5bd43fad.jpg"
+            alt="Earphones"
+          />
+          <h3>Wireless Earbuds</h3>
+        </div>
+        <div class="product-card">
+          <img
+            src="WhatsApp Image 2025-04-18 at 11.39.25_16a33229.jpg"
+            alt="Screen Protector"
+          />
+          <h3>Laptops</h3>
+        </div>
+        <div class="product-card">
+          <img
+            src="WhatsApp Image 2025-04-18 at 11.39.25_d9b847f4.jpg"
+            alt="Wireless Charger"
+          />
+          <h3>Tablets</h3>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2025 EedreessGadget. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://wa.link/z1c4tk"><i class='bx bxl-whatsapp bx-tada' style='color:#0af512'></i></a>
-            <a href="https://www.instagram.com/eedreessgadgets?igsh=MTZ6OThrMzZkYmQ2ag%3D%3D&utm_source=qr"><i class='bx bxl-instagram-alt bx-tada' style='color:#e606f5'></i></a>
-        </div>
+      <p>&copy; 2025 EedreessGadget. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://wa.link/z1c4tk"
+          ><i class="bx bxl-whatsapp bx-tada" style="color: #0af512"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/eedreessgadgets?igsh=MTZ6OThrMzZkYmQ2ag%3D%3D&utm_source=qr"
+          ><i class="bx bxl-instagram-alt bx-tada" style="color: #e606f5"></i
+        ></a>
+      </div>
     </footer>
 
-</body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const input = document.getElementById("searchInput");
+        const cards = document.querySelectorAll(".product-card");
+
+        input.addEventListener("keyup", function () {
+          const filter = this.value.trim().toLowerCase();
+
+          cards.forEach((card) => {
+            // Grab the product title text
+            const title = card.querySelector("h3").textContent.toLowerCase();
+
+            // If the title includes the filter text, show it; otherwise hide it
+            if (title.includes(filter)) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>

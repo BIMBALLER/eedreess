@@ -20,6 +20,14 @@
     </nav>
     <section class="products" id="products">
         <h2>Featured Gadgets</h2>
+        <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search products..."
+              aria-label="Search products"
+            />
+          </div>
         <div class="product-grid">
             <div class="product-card">
                 <a href="proo.html">
@@ -34,16 +42,39 @@
                 <a href="https://wa.link/z1c4tk" class="cta-button">Shop Now</a>
             </div>
             <div class="product-card">
-                <img src="WhatsApp Image 2025-04-18 at 11.39.25_16a33229.jpg" alt="Screen Protector">
+                <img src="WhatsApp Image 2025-04-18 at 11.39.25_16a33229.jpg" alt="Laptops">
                 <h3>Laptops</h3>
                 <a href="https://wa.link/z1c4tk" class="cta-button">Shop Now</a>
             </div>
             <div class="product-card">
-                <img src="WhatsApp Image 2025-04-18 at 11.39.25_d9b847f4.jpg" alt="Wireless Charger">
+                <img src="WhatsApp Image 2025-04-18 at 11.39.25_d9b847f4.jpg" alt="Tablets">
                 <h3>Tablets</h3>
                 <a href="https://wa.link/z1c4tk" class="cta-button">Shop Now</a>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const input = document.getElementById("searchInput");
+          const cards = document.querySelectorAll(".product-item");
+  
+          input.addEventListener("keyup", function () {
+            const filter = this.value.trim().toLowerCase();
+  
+            cards.forEach((card) => {
+              // Grab the product title text
+              const title = card.querySelector("h3").textContent.toLowerCase();
+  
+              // If the title includes the filter text, show it; otherwise hide it
+              if (title.includes(filter)) {
+                card.style.display = "";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      </script>
 </body>
 </html>
